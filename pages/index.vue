@@ -1,0 +1,3167 @@
+<template>
+  <main class="main">
+    <Hero
+      title="Ваша зона комфорта начинается<br>в парк-отеле Троя"
+      :images="[
+        '/site2/Баннер Главная/1.png',
+        '/site2/Баннер Главная/2.png',
+        '/site2/Баннер Главная/3.png',
+        '/site2/Баннер Главная/4.jpg',
+        '/site2/Баннер Главная/5.png',
+      ]"
+      :showBooking="true"
+      :useSlider="true"
+      :sliderDelay="5000"
+      :shiftIndex="0"
+      shift-position="33% center"
+    />
+
+    <widget
+      containerId="widget_mobile"
+      :maxWidth="1024"
+      :widgetOptions="{ type: 'vertical' }"
+      :showBooking="true"
+    />
+
+    <!-- Новогодняя кампания отключена. Для восстановления раскомментировать блок и импорт. -->
+    <NewYearHomeBlock />
+
+    <section class="advantages">
+      <div class="container">
+        <div class="advantages__inner">
+          <!-- Заголовок блока -->
+          <div class="advantages__header">
+            <h2 class="advantages__subtitle title">
+              Почему гости выбирают нас
+            </h2>
+          </div>
+
+          <!-- Список преимуществ -->
+          <div class="advantages__features">
+            <div class="rooms-page__media">
+              <VideoPlayer :src="videoSrc" :poster="poster" mode="red" />
+            </div>
+            <ul class="advantages__features-list">
+              <li class="advantages__features-item">
+                Шаговая доступность до парка «Галицкого», стадиона «Краснодар»,
+                Краевой клинической больницы №1 им. проф. С. В. Очаповского
+              </li>
+              <li class="advantages__features-item">
+                46 номеров — возможность размещения команд с организацией
+                питания
+              </li>
+              <li class="advantages__features-item">
+                СПА-комплекс и бассейн для проживающих гостей по специальному тарифу и по предварительной 
+                записи
+              </li>
+              <li class="advantages__features-item">
+                Собственный ресторан «Свои люди»
+              </li>
+              <li class="advantages__features-item">
+                Бесплатная парковка (количество мест ограниченно)
+              </li>
+              <li class="advantages__features-item">
+                Размещение с маленькими домашними питомцами (по согласованию с
+                администратором)
+              </li>
+            </ul>
+          </div>
+
+          <div class="advantages__ratings">
+            <h3 class="advantages__ratings-title">
+              Рейтинги от ведущих сервисов
+            </h3>
+
+            <div class="advantages__ratings-item-wrapper">
+              <div class="advantages__rating-item">
+                <h4 class="advantages__rating-name">Награды</h4>
+                <div class="advantages__rating-card">
+                  <img
+                    class="advantages__rating-image advantages__rating-image--yandex"
+                    src="/home/advantages/yandex-badge.png"
+                    alt="Метка на Яндекс.Картах"
+                  />
+                  <div class="advantages__rating-info">
+                    <p class="advantages__rating-text">Хорошее место — 2026</p>
+                    <div class="advantages__rating-score">
+                      <span class="advantages__rating-value">4,9</span>
+                      <p
+                        class="advantages__rating-description"
+                        style="text-align: left"
+                      >
+                        Наша оценка на Яндекс.Картах
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <p class="advantages__rating-description-full">
+                  Парк-отель «Троя» помечен на Яндекс.Картах меткой
+                  <span>«Хорошее место»</span> — знак, что гости и местные ценят
+                  наше расположение и сервис. Удобно посмотреть проезд, отзывы и
+                  фото прямо на карте.
+                </p>
+                <div class="advantages__rating-buttons">
+                  <ClientOnly>
+                    <Button
+                      customClass="advantages__rating-button"
+                      label="Перейти в Яндекс.Карты"
+                      color="red"
+                      size="large"
+                      tag="a"
+                      href="https://yandex.com/maps/org/troy/1042792426/"
+                      :target="true"
+                    />
+                  </ClientOnly>
+                </div>
+              </div>
+
+              <div class="advantages__rating-item">
+                <p class="advantages__rating-text">
+                  Наш парк-отель «Троя» стабильно получает высокие оценки от
+                  гостей и ведущих сервисов бронирования
+                </p>
+                <div class="advantages__rating-card">
+                  <img
+                    class="advantages__rating-image advantages__rating-image--hotel"
+                    src="/home/advantages/hotel-recommend.jpg"
+                    alt="101 отель рекомендует"
+                  />
+                  <div class="advantages__rating-info">
+                    <p class="advantages__rating-card-text">
+                      Гости высоко ценят наше удобное расположение, уровень
+                      сервиса и чистоту номеров.
+                    </p>
+                    <ClientOnly>
+                      <Button
+                        customClass="advantages__rating-button"
+                        label="Подробнее о рейтингах"
+                        color="red"
+                        size="large"
+                        tag="a"
+                        :target="true"
+                        href="https://101hotels.com/main/cities/krasnodar/otel_troya.html"
+                      />
+                    </ClientOnly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-offer">
+      <div class="container">
+        <div class="team-offer__inner">
+          <!-- Заголовок секции -->
+          <header class="team-offer__header">
+            <span class="team-offer__badge">Специальное предложение для команд и делегаций</span>
+            <p class="team-offer__description">
+              Организация проживания и питания для спортивных команд, <br> делегаций и корпоративных групп
+            </p>
+          </header>
+          
+          <!-- Ярлыки преимуществ -->
+          <div class="team-offer__features">
+            <article class="team-offer__feature">
+              <div class="team-offer__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="team-offer__feature-content">
+                <h3 class="team-offer__feature-title">Персональный менеджер</h3>
+                <p class="team-offer__feature-text">От бронирования до выезда — полное сопровождение</p>
+              </div>
+            </article>
+            
+            <article class="team-offer__feature">
+              <div class="team-offer__feature-icon">
+                <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg> -->
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 1740 2271">
+                    <g id="Слой_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"/>
+                <path class="fil0" d="M1675 348c-37,-95 -90,-151 -147,-204 -57,-53 -157,-104 -240,-122 -61,-15 -149,-22 -263,-22l-881 0 0 1052 -144 0 0 236 144 0 0 96 -144 0 0 236 144 0 0 651 253 0 0 -651 905 0 0 -236 -905 0 0 -96 16 0 632 0c244,0 419,-68 527,-200 104,-127 168,-238 168,-432 0,-112 -31,-215 -65,-308zm-332 596l0 0c-63,73 -147,108 -294,108l-636 0 0 0 -16 0 0 -811 647 0c103,0 175,7 212,20 61,39 108,69 143,135 37,68 55,149 55,242 0,132 -51,236 -111,306z"/>
+                </g>
+                </svg>
+              </div>
+              <div class="team-offer__feature-content">
+                <h3 class="team-offer__feature-title">Индивидуальный расчёт</h3>
+                <p class="team-offer__feature-text">Возможность бесплатного размещения для организатора</p>
+              </div>
+            </article>
+            
+            <article class="team-offer__feature">
+              <div class="team-offer__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div class="team-offer__feature-content">
+                <h3 class="team-offer__feature-title">Бонусная система</h3>
+                <p class="team-offer__feature-text">Чем больше номеров — тем выгоднее условия</p>
+              </div>
+            </article>
+            
+            <article class="team-offer__feature">
+              <div class="team-offer__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              </div>
+              <div class="team-offer__feature-content">
+                <h3 class="team-offer__feature-title">Пакетное предложение</h3>
+                <p class="team-offer__feature-text">Проживание, питание, конференц-зал, спа</p>
+              </div>
+            </article>
+            
+            <article class="team-offer__feature">
+              <div class="team-offer__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <div class="team-offer__feature-content">
+                <h3 class="team-offer__feature-title">Разные форматы питания</h3>
+                <p class="team-offer__feature-text">Обед, ужин, кофе-брейк, банкет</p>
+              </div>
+            </article>
+          </div>
+          
+          <!-- Контакты и кнопка -->
+          <footer class="team-offer__footer">
+            <div class="team-offer__contacts">
+              <a href="tel:+79681999181" class="team-offer__contact team-offer__contact--phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>+7 968 199-91-81</span>
+              </a>
+              <a href="mailto:sale@troy-hotel.ru" class="team-offer__contact team-offer__contact--email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span>sale@troy-hotel.ru</span>
+              </a>
+            </div>
+            <Button
+              href="mailto:sale@troy-hotel.ru?subject=Заявка на групповое размещение"
+              label="Написать на почту"
+              color="yellow"
+              size="large"
+              tag="a"
+              customClass="team-offer__button"
+            />
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms">
+      <div class="container">
+        <div class="rooms__inner">
+          <div class="rooms__header">
+            <h2 class="rooms__title title">Номерной фонд</h2>
+            <p class="rooms__description">
+              Парк-отель «Троя» сочетает атмосферу уюта, элегантный стиль 
+              и современный комфорт. <br> Интерьеры оформлены
+              с вниманием к каждой детали, создавая ощущение гармонии и уединения. <br> Просторные номера, мягкий естественный свет и тихая атмосфера помогают полностью расслабиться, <br> восстановить силы и насладиться отдыхом в комфортной обстановке.
+            </p>
+          </div>
+
+          <span class="rooms__line"></span>
+
+          <Tabs
+            :tabs="rooms.map((r) => ({ label: r.title }))"
+            v-model:selected="selectedIndex"
+          >
+            <template #icon="{ isActive }">
+              <svg v-if="isActive" class="tabs__tab-icon" aria-hidden="true">
+                <use xlink:href="/svg/icons/inlineSprite.svg#arrow-right" />
+              </svg>
+            </template>
+
+            <template
+              v-for="(room, index) in rooms"
+              :key="room.slug"
+              #[`tab-${index}`]
+            >
+              <article class="rooms__content">
+                <div class="rooms__media">
+                  <!-- Слайдер рендерится только на активном табе -->
+                  <SwiperSlider
+                    ref="roomsSliderRef"
+                    :images="
+                      room.images.map((img, idx) => ({
+                        src: img,
+                        alt: room.title + ' ' + (idx + 1),
+                      }))
+                    "
+                    @slides-count="roomsSlidesCount[selectedIndex] = $event"
+                    @active-slide="roomsActiveSlide[selectedIndex] = $event"
+                  />
+                </div>
+
+                <div class="rooms__details">
+                  <div class="rooms__details-header">
+                    <h3 class="rooms__room-title">{{ room.title }}</h3>
+                    <p class="rooms__room-description">
+                      {{ room.cardDescription }}
+                    </p>
+                  </div>
+
+                  <dl class="room-info">
+                    <div
+                      v-for="roomInfo in room.roomInfo"
+                      :key="roomInfo.label"
+                      class="room-info__item"
+                    >
+                      <dt class="room-info__label">{{ roomInfo.label }}</dt>
+                      <dd class="room-info__value">{{ roomInfo.value }}</dd>
+                    </div>
+                  </dl>
+
+                  <div class="rooms__actions">
+                    <Button
+                      label="Подробнее"
+                      color="yellow"
+                      size="large"
+                      tag="nuxt-link"
+                      :href="`/rooms/${room.slug}`"
+                      customClass="rooms__button"
+                    />
+                    <p class="rooms__price">
+                      Стоимость от {{ formatRoomPrice(room.price) }} руб.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </template>
+          </Tabs>
+        </div>
+      </div>
+    </section>
+
+    <section class="infrastructure">
+      <div class="container">
+        <div class="infrastructure__inner">
+          <header class="infrastructure__header">
+            <h2 class="infrastructure__title title">Инфраструктура отеля</h2>
+            <p class="infrastructure__subtitle">
+              Всё для вашего комфорта — от отдыха до деловых встреч.
+            </p>
+          </header>
+
+          <div class="infrastructure__list-wrapper">
+            <div class="infrastructure__list">
+              <article
+                v-for="(item, idx) in infrastructureItems"
+                :key="idx"
+                class="infrastructure__item"
+                :class="{ 'infrastructure__item--flip': item.flip }"
+              >
+                <div class="infrastructure__content">
+                  <h3 class="infrastructure__item-subtitle">
+                    {{ item.title }}
+                  </h3>
+                  <p class="infrastructure__item-text">{{ item.text }}</p>
+
+                  <div class="infrastructure__features">
+                    <p class="infrastructure__features-title">
+                      {{ item.featuresTitle }}
+                    </p>
+                    <ul class="infrastructure__features-list">
+                      <li
+                        v-for="(feature, fIdx) in item.features"
+                        :key="fIdx"
+                        class="infrastructure__features-item"
+                      >
+                        {{ feature }}
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="infrastructure__buttons">
+                    <Button
+                      customClass="infrastructure__button1"
+                      label="Подробнее"
+                      color="yellow"
+                      size="large"
+                      tag="nuxt-link"
+                      :href="item.link"
+                    />
+                    <!-- <Button customClass="infrastructure__button2" color="black" size="large" trailIcon="play"
+                      tag="button" />
+                    <Button customClass="infrastructure__button3" label="Cмотреть видео" color="black" size="large"
+                      trailIcon="play" tag="button" /> -->
+                  </div>
+                </div>
+
+                <div class="infrastructure__media">
+                  <img
+                    :src="item.image"
+                    alt=""
+                    class="infrastructure__image-full"
+                  />
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <gallery v-if="images" title="Галерея" :images="images" />
+
+    <section class="special-offers">
+      <div class="container">
+        <div class="special-offers__inner">
+          <header class="special-offers__header">
+            <h2 class="special-offers__title title">
+              Специальные предложения — отдых с привилегиями
+            </h2>
+            <p class="special-offers__description">
+              Выбирайте акции, которые сделают ваш отдых ещё приятнее.
+              Бронируйте с выгодой, получайте бонусы и наслаждайтесь отдыхом без
+              лишних затрат.
+            </p>
+          </header>
+
+          <div class="special-offers__items">
+            <article class="special-offers__item">
+              <div class="special-offers__media">
+                <img
+                  src="/home/special-offers/1.jpg"
+                  alt="Специальное предложение"
+                  class="special-offers__image"
+                />
+
+                <div class="special-offers__content">
+                  <h3 class="special-offers__label">
+                    Скидка 10% на длительное проживание от 10 дней
+                  </h3>
+                  <p class="special-offers__subtitle">
+                    Оставайтесь дольше — платите меньше.
+                  </p>
+                  <p class="special-offers__text">
+                    При бронировании от 10 дней с предоплатой вы получаете
+                    скидку 10%. Отличное предложение для командировок и долгих
+                    поездок.
+                  </p>
+                  <!-- <Button label="Подробнее" color="yellow" size="large" tag="nuxt-link" href="/spa"
+                      customClass="special-offers__button" /> -->
+                </div>
+              </div>
+            </article>
+            <article class="special-offers__item">
+              <div class="special-offers__media">
+                <img
+                  src="/home/special-offers/2.jpg"
+                  alt="Специальное предложение"
+                  class="special-offers__image"
+                />
+                <div class="special-offers__content">
+                  <h3 class="special-offers__label">Акция для молодожёнов</h3>
+                  <p class="special-offers__text">
+                    При заказе банкета мы дарим номер для молодожёнов в
+                    подарок, а гостям банкета предоставляем скидку 10% на
+                    заселение в отель при соблюдении условий акции.
+                  </p>
+                  <!-- <Button label="Подробнее" color="yellow" size="large" tag="nuxt-link" href="/spa"
+                      customClass="special-offers__button" /> -->
+                </div>
+              </div>
+            </article>
+            <article class="special-offers__item">
+              <div class="special-offers__media">
+                <img
+                  src="/home/special-offers/3.jpg"
+                  alt="Специальное предложение"
+                  class="special-offers__image"
+                />
+
+                <div class="special-offers__content">
+                  <h3 class="special-offers__label">
+                    Скидка для гостей отеля на посещение СПА-комплекса
+                  </h3>
+                  <p class="special-offers__text">
+                    Подарите себе полноценный отдых и восстановление по
+                    специальной цене для гостей отеля. Идеальный способ
+                    расслабиться после дороги, снять усталость и завершить день
+                    в атмосфере комфорта и уюта.
+                  </p>
+                  <!-- <Button label="Подробнее" color="yellow" size="large" tag="nuxt-link" href="/spa"
+                      customClass="special-offers__button" /> -->
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contacts">
+      <div class="container">
+        <div class="contacts__inner">
+          <header class="contacts__header">
+            <h2 class="contacts__title title">Контакты</h2>
+          </header>
+
+          <div class="contacts__info">
+            <div class="contacts__item">
+              <h3 class="contacts__item-title">Телефоны</h3>
+              <div class="contacts__item-text contacts__phones">
+                <a href="tel:+78002002533" class="contacts__link" data-allow-mismatch="children"
+                  >+7 800 200-25-33</a
+                >
+                <a href="tel:+79681999181" class="contacts__link" data-allow-mismatch="children"
+                  >+7 968 199-91-81</a
+                >
+              </div>
+            </div>
+
+            <div class="contacts__item">
+              <h3 class="contacts__item-title">Электронная почта</h3>
+              <p class="contacts__item-text">
+                <a href="mailto:info@troy-hotel.ru" class="contacts__link"
+                  >info@troy-hotel.ru</a
+                >
+              </p>
+            </div>
+
+            <div class="contacts__item">
+              <h3 class="contacts__item-title">Адрес</h3>
+              <address class="contacts__item-text">
+                Краснодар, ул. 1-го Мая, 131
+              </address>
+            </div>
+          </div>
+
+          <div>
+            <iframe
+              class="contacts__map"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A40774ff6fcdfb5ed2c42780bc2cf47cd447f1ba4f73c11a5d234fa41b82c890f&amp;source=constructor"
+              width="100%"
+              height="699"
+              frameborder="0"
+              title="Карта расположения Парк-отеля «Троя»"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ModalFeedback
+      v-model:show="isModalOpen"
+      title="Хотите расчитать стоимость размещения команды?"
+      subtitle="Оставьте контакты и мы свяжемся с вами для расчета"
+      @submit="handleSubmit"
+    />
+  </main>
+</template>
+
+<script lang="ts" setup>
+import gallery from "~/components/Gallery.vue";
+import Button from "~/components/ui/VButton.vue";
+import Tabs from "~/components/Tabs.vue";
+import SwiperSlider from "~/components/page/SwiperSlider.vue";
+import FullscreenImage from "~/components/FullScreenImage.vue";
+import { rooms as roomsData } from "~/data/rooms";
+import ModalFeedback from "~/components/ModalFeedback.vue";
+import { useGallery } from "~/composables/useGallery";
+import { seo } from "~/seo/index";
+import VideoPlayer from "~/components/ui/PlayerVideo.vue";
+import widget from "~/components/widget.vue";
+import NewYearHomeBlock from "~/components/newyear/NewYearHomeBlock.vue";
+
+const videoSrc = "/home/IMG_5988.MP4";
+const poster = "/home/preview-video.webp";
+
+const { images } = await useGallery();
+
+const isModalOpen = ref(false);
+const advantagesSliderRef = ref<InstanceType<typeof SwiperSlider> | null>(null);
+const advantagesSlidesCount = ref(0);
+const advantagesActiveSlide = ref(0);
+
+const openModal = () => {
+  isModalOpen.value = true;
+};
+
+const reachGoal = (goal: string) => {
+  try {
+    window.ym(53290438, "reachGoal", goal);
+    window.ym(53290438, "reachGoal", "form_submit_any");
+    console.log("[YandexMetrika] Цель отправлена:", goal);
+  } catch (error) {
+    console.error("[YandexMetrika] Ошибка при отправке цели:", goal, error);
+  }
+};
+
+const { data: advantagesImages } = await useAsyncData("advantages-images", () =>
+  $fetch("/api/advantages-images")
+);
+
+const handleSubmit = async (data: {
+  name: string;
+  phone: string;
+  question?: string;
+}) => {
+  const res = await $fetch("/api/mail", {
+    method: "POST",
+    body: {
+      type: "group_booking",
+      form: data,
+    },
+  });
+
+  console.log("Ответ сервера:", res);
+
+  if (res.ok) {
+    reachGoal("group_booking");
+  }
+};
+
+const { data: roomsImages } = await useAsyncData("rooms-images", () =>
+  $fetch("/api/rooms-images")
+);
+
+const roomsImagesLoaded = computed(() => !!roomsImages.value);
+
+const rooms = computed(() =>
+  roomsData.map((room) => ({
+    ...room,
+    images: roomsImages.value?.[room.slug] || [],
+  }))
+);
+
+const formatRoomPrice = (price: string) =>
+  new Intl.NumberFormat("ru-RU").format(Number(price));
+
+const selectedIndex = ref(0);
+const roomsSliderRef = ref<
+  (InstanceType<typeof SwiperSlider> & { update?: () => void }) | null
+>(null);
+const roomsSlidesCount = ref<number[]>(roomsData.map(() => 0));
+const roomsActiveSlide = ref<number[]>(roomsData.map(() => 0));
+
+// обновление Swiper после смены таба
+watch(selectedIndex, async () => {
+  await nextTick();
+  roomsSliderRef.value?.update?.();
+});
+
+const infrastructureRef = ref(null);
+const slides = ref(Array.from({ length: 10 }));
+const swiper = useSwiper(infrastructureRef, {
+  effect: "slide",
+  slidesPerView: 2.5,
+  spaceBetween: 20,
+  breakpoints: {
+    998: {
+      slidesPerView: 1.7,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 1.4,
+      spaceBetween: 20,
+    },
+    600: {
+      slidesPerView: 1.2,
+      spaceBetween: 20,
+    },
+    575: {
+      slidesPerView: 1.1,
+      spaceBetween: 20,
+    },
+    0: {
+      slidesPerView: 1.05,
+      spaceBetween: 0,
+    },
+  },
+});
+
+onMounted(() => {
+  console.log(swiper.instance);
+});
+
+const roomsRef = ref(null);
+const { next, prev, activeIndex, getNumberOfSlides } = useSwiper(roomsRef, {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  // Отключаем взаимодействие пользователя
+  allowTouchMove: false,
+  simulateTouch: false,
+  mousewheel: false,
+  keyboard: false, // если нужно отключить стрелки клавиатуры
+});
+
+// const currentSlide = computed(() => activeIndex.value + 1)
+// const totalSlides = computed(() => getNumberOfSlides.value)
+
+// <div class="swiper-info">
+//   Слайд {{ currentSlide }} из {{ totalSlides }}
+// </div>
+
+// const currentSlide = computed(() => activeIndex.value + 1)
+
+// вычисляем массив изображений для активного таба
+const currentRoomImages = computed(() => {
+  return rooms.value[selectedIndex.value]?.images || [];
+});
+
+// общее количество слайдов для активного таба
+const totalSlides = computed(() => currentRoomImages.value.length);
+
+// кнопка "назад" показывается, если больше 1 слайда и текущий индекс > 0
+const canGoPrev = computed(
+  () => totalSlides.value > 1 && activeIndex.value > 0
+);
+
+// кнопка "вперед" показывается, если больше 1 слайда и текущий индекс < последний
+const canGoNext = computed(
+  () => totalSlides.value > 1 && activeIndex.value < totalSlides.value - 1
+);
+
+interface InfrastructureItem {
+  title: string;
+  text: string;
+  featuresTitle: string;
+  features: string[];
+  image: string;
+  flip: boolean;
+  link: string;
+  mobileImage?: string; // опционально
+}
+
+const infrastructureItems = ref<InfrastructureItem[]>([
+  {
+    title: "Банкеты и мероприятия",
+    text: "Ресторан «Свои люди» предлагает готовое решение — организация вашего мероприятия под ключ в наших красивых и просторных залах.",
+    featuresTitle: "Возможности:",
+    features: [
+      "Вместимость до 80 гостей",
+      "Индивидуальное меню",
+      "Организация выездной регистрации",
+      "Оборудование и декор",
+      "Мероприятие под ключ",
+    ],
+    image: "/home/infrastructure/infrastructure-1.jpg",
+    flip: false,
+    link: "/banquet",
+  },
+  {
+    title: "Ресторан «СВОИ ЛЮДИ»",
+    text: "Европейская и кавказская кухня, круглосуточное обслуживание и летняя терраса.",
+    featuresTitle: "Что вас ждёт:",
+    features: [
+      "Индивидуальное и банкетное меню",
+      "Завтраки и обслуживание номеров",
+      "Просторный зал и уютная веранда",
+    ],
+    image: "/home/infrastructure/infrastructure-3.png",
+    flip: true,
+    link: "/restaurant",
+  },
+  {
+    title: "Спа-комплекс и отдых",
+    text: "Полноценный отдых в уютной спа-зоне с сауной, джакузи и бассейном — отличное завершение дня.",
+    featuresTitle: "В спа-комплексе:",
+    features: [
+      "Финская сауна, бассейн, зона для отдыха",
+      "Турецкий хамам, джакузи, инфракрасная кабина",
+    ],
+    image: "/home/infrastructure/infrastructure-4.jpg",
+    flip: false,
+    link: "/spa",
+  },
+]);
+
+const width = ref(0);
+
+onMounted(() => {
+  // только на клиенте window доступен
+  width.value = window.innerWidth;
+
+  const handleResize = () => {
+    width.value = window.innerWidth;
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("resize", handleResize);
+  });
+});
+
+// watch ширины окна, чтобы менять картинку
+watch(
+  width,
+  (w) => {
+    const first = infrastructureItems.value[0];
+    if (first.mobileImage) {
+      first.image =
+        w <= 675
+          ? first.mobileImage
+          : "/home/infrastructure/infrastructure-1.png";
+    }
+  },
+  { immediate: true }
+);
+
+useHead(seo);
+
+definePageMeta({
+  pageTransition: {
+    name: "fade-soft",
+    mode: "out-in",
+    css: true,
+    duration: { enter: 300, leave: 300 },
+  },
+});
+</script>
+
+<style scoped>
+swiper-container {
+  width: 100% !important;
+}
+
+swiper-slide {
+  width: 100% !important;
+}
+
+.rooms-page__images-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: none;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 100%;
+}
+
+/* Левая стрелка слегка выезжает при наведении */
+.rooms-page__images-button--left:hover {
+  transform: translate(-0.5rem, -50%);
+}
+
+/* Правая стрелка слегка выезжает при наведении */
+.rooms-page__images-button--right:hover {
+  transform: translate(0.5rem, -50%);
+}
+
+/* Для мягкой анимации при клике можно добавить эффект нажатия */
+.rooms-page__images-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.rooms-page__images-button--left {
+  left: 0;
+}
+
+.rooms-page__images-button--right {
+  right: 0;
+}
+
+.rooms-page__images-button.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rooms-page__media {
+  flex: 0 1 754px;
+  max-width: 100%;
+  width: 100%;
+  height: 475px;
+  position: relative;
+  display: flex;
+}
+
+.rooms-page__images {
+  width: 100%;
+  height: 100%;
+}
+
+.rooms-page__btn-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke: #fbec78;
+}
+
+.rooms-page__slide,
+.rooms-page__slide img,
+.rooms-page__slide .rooms-page__image {
+  width: 100% !important;
+  max-height: 475px;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  height: 100%;
+  aspect-ratio: 4 / 3.2;
+}
+
+.advantages__features-list {
+  flex: 0 1 515px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.advantages {
+}
+
+.advantages__inner {
+  border-radius: 60px;
+  padding: 50px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Заголовок блока */
+.advantages__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.advantages__title {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: #7e7e7e;
+}
+
+.advantages__subtitle {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 120%;
+  text-align: center;
+  color: #1c1c1c;
+}
+
+/* Список преимуществ */
+.advantages__features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+.advantages__features-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  flex: 1 1 35%;
+  max-width: 37rem;
+}
+
+.advantages__features-item {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  padding-left: 2.4rem;
+  border-left: 1px solid #ffe200;
+}
+
+/* Рейтинги и награды */
+.advantages__ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.advantages__ratings-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--noble-black-600);
+}
+
+.advantages__ratings-item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 70px;
+  gap: 10rem;
+  flex-wrap: wrap;
+}
+
+.advantages__rating-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20%;
+}
+
+.advantages__rating-item:first-child {
+  /* max-width: 40.4rem; */
+  gap: 3rem;
+}
+
+.advantages__rating-item:last-child {
+  /* max-width: 56.9rem; */
+  gap: 9rem;
+}
+
+.advantages__rating-name {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 140%;
+  color: #000;
+}
+
+.advantages__rating-card {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.advantages__rating-image--yandex {
+  width: 9.6rem;
+  height: 5.5rem;
+}
+
+.advantages__rating-image--hotel {
+  border-radius: 1.5rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.advantages__rating-info {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 140%;
+  color: #000;
+}
+
+.advantages__rating-text {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: #000;
+}
+
+.advantages__rating-score {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.advantages__rating-value {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 60px;
+  line-height: 100%;
+  text-align: right;
+  color: var(--noble-black-600);
+}
+
+.advantages__rating-description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 130%;
+  color: var(--noble-black-600);
+  opacity: 0.65;
+  max-width: 14.1rem;
+}
+
+.advantages__rating-description-full {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+}
+
+.advantages__rating-description-full > span {
+  font-weight: 500;
+}
+
+.advantages__rating-card-text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  margin-bottom: 3rem;
+}
+
+.advantages__rating-buttons {
+  width: 100%;
+  display: flex;
+}
+
+.advantages__rating-button {
+  max-width: 28rem !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 1366px) {
+  .advantages__rating-item:last-child {
+    gap: 4rem;
+  }
+
+  .advantages__ratings-item-wrapper {
+    gap: 7rem;
+    padding: 0px 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .advantages__inner {
+    padding: 4rem;
+  }
+
+  .advantages__features {
+    padding: 0;
+    gap: 5rem;
+    flex-direction: column;
+  }
+
+  .advantages__features-list {
+    flex: none;
+  }
+
+  .rooms-page__media {
+    flex: none;
+    height: 520px;
+  }
+
+  /* .advantages__features {
+    padding: 0 40px;
+  } */
+
+  /* .advantages__features-title {
+    flex: 1 1 20%;
+  }
+
+  .advantages__features-list {
+    flex: 1 1 40%;
+  } */
+}
+
+@media (max-width: 1130px) {
+  .advantages__ratings-item-wrapper {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .advantages__rating-item {
+    flex: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages__ratings-item-wrapper {
+    padding: 0;
+  }
+}
+
+@media (max-width: 920px) {
+  .advantages__header {
+    margin-bottom: 2rem;
+  }
+
+  .advantages__features {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .advantages__features-title {
+    flex: 1 1 0;
+  }
+
+  .advantages__features-list {
+    flex: 1 1 0;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages__features-title {
+    font-size: 2.7rem;
+  }
+
+  .rooms-page__slide,
+  .rooms-page__slide img,
+  .rooms-page__slide .rooms-page__image {
+    max-height: 440px;
+  }
+
+  .rooms-page__media {
+    max-height: 440px;
+  }
+}
+
+@media (max-width: 675px) {
+  .advantages__rating-item {
+    align-items: center;
+  }
+
+  .advantages__rating-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .advantages__inner {
+    padding: 3rem 2rem;
+    gap: 3.5rem;
+    border-radius: 45px;
+  }
+
+  .advantages__features {
+    gap: 4rem;
+  }
+
+  .advantages__features-title {
+    font-size: 2.4rem;
+  }
+
+  .advantages__features-item {
+    font-size: 1.7rem;
+  }
+
+  .advantages__ratings-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .advantages__features-title {
+    font-size: 2rem;
+  }
+
+  .advantages__ratings-title {
+    font-size: 2rem;
+  }
+
+  .advantages__rating-name {
+    font-size: 1.9rem;
+  }
+
+  .advantages__rating-text {
+    font-size: 1.8rem;
+  }
+
+  .advantages__rating-value {
+    font-size: 5rem;
+  }
+
+  .advantages__rating-buttons {
+    justify-content: center;
+  }
+
+  .advantages__rating-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .rooms-page__slide,
+  .rooms-page__slide img,
+  .rooms-page__slide .rooms-page__image {
+    max-height: 380px;
+  }
+
+  .rooms-page__media {
+    max-height: 380px;
+  }
+}
+
+.infrastructure {
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.infrastructure__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.infrastructure__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infrastructure__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 120%;
+  text-align: center;
+  color: #1c1c1c;
+}
+
+.infrastructure__subtitle {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: #1c1c1c;
+}
+
+.infrastructure__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.infrastructure__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 5rem;
+  flex-wrap: wrap;
+  background: var(--white);
+  padding: 6rem;
+  /* box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1); */
+  background: var(--noble-black-0);
+  border-radius: 60px;
+}
+
+.infrastructure__item--flip {
+  flex-direction: row-reverse;
+}
+
+.infrastructure__content {
+  flex: 1 1 35%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infrastructure__media {
+  flex: 1 1 55%;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infrastructure__item-title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: 0.2em;
+  text-transform: capitalize;
+  color: var(--noble-black-600);
+  margin-bottom: 1.3rem;
+}
+
+.infrastructure__item-subtitle {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  margin-bottom: 1.3rem;
+  /* text-transform: uppercase; */
+  /* background-color: #fbec78;
+  display: inline-block;
+  align-self: baseline;
+  padding: 0.1em 0.3em;
+  border-radius: 0.5rem; */
+}
+
+.infrastructure__item-text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-300);
+  margin-bottom: 2rem;
+}
+
+.infrastructure__features {
+  margin-bottom: 4rem;
+}
+
+.infrastructure__features-title {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  margin-bottom: 2rem;
+}
+
+.infrastructure__features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infrastructure__features-item {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  border-left: 1px solid #ffcc00;
+  padding: 5px 0 5px 20px;
+}
+
+.infrastructure__buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 27rem;
+}
+
+.infrastructure__button1 {
+  max-width: 28rem !important;
+}
+
+.infrastructure__button2 {
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+  border-radius: 1.5rem !important;
+  max-width: 28rem !important;
+}
+
+.infrastructure__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infrastructure__image-full {
+  width: 100%;
+  height: auto;
+  border-radius: 6rem;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.infrastructure__slider {
+  width: 100%;
+  display: none;
+}
+
+.infrastructure__slide {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1366px) {
+  /* .infrastructure__inner {
+    padding: 50px 70px;
+  } */
+
+  .infrastructure__item {
+    gap: 5rem;
+  }
+}
+
+/* @media (max-width: 1200px) {
+  .infrastructure__inner {
+    padding: 50px;
+  }
+} */
+
+@media (max-width: 1200px) {
+  .infrastructure__inner {
+    /* padding: 0;
+    background: transparent; */
+    gap: 4rem;
+    /* padding: 3rem; */
+  }
+
+  .infrastructure__item {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: var(--white);
+    padding: 4rem 3rem;
+    box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    background: var(--noble-black-0);
+    border-radius: 60px;
+  }
+
+  .infrastructure__item--flip {
+    flex-direction: column;
+  }
+
+  .infrastructure__content {
+    flex: none;
+  }
+
+  .infrastructure__media {
+    flex: none;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .infrastructure__inner {
+    /* padding: 0;
+    background: transparent; */
+    /* gap: 4rem; */
+    /* padding: 3rem 2rem; */
+  }
+}
+
+@media (max-width: 575px) {
+  .advantages__inner {
+    border-radius: 45px;
+  }
+
+  .infrastructure__item-subtitle {
+    font-size: 2.2rem;
+  }
+
+  .infrastructure__image-full {
+    border-radius: 4.5rem;
+  }
+}
+
+@media (min-width: 481px) {
+  .infrastructure__button3 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .infrastructure__slider {
+    display: none;
+  }
+
+  .infrastructure__content {
+    min-width: auto;
+  }
+
+  .infrastructure__buttons {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .infrastructure__button2 {
+    display: none;
+  }
+
+  .infrastructure__button3 {
+    max-width: 25rem !important;
+  }
+
+  .infrastructure__inner {
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    /* gap: 7rem; */
+  }
+
+  .infrastructure__item {
+    padding: 3rem 2rem;
+    border-radius: 45px;
+    margin: 0;
+  }
+
+  .infrastructure__item-subtitle {
+    font-size: 2rem;
+  }
+}
+
+.group {
+}
+
+.group__inner {
+  border-radius: 60px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  background-color: var(--white);
+}
+
+.group__header {
+  padding: 0px 40px 0px 40px;
+  display: flex;
+  gap: 10rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  flex: 1 1 35%;
+}
+
+.group__content {
+  border-radius: 30px;
+  padding: 20px 25px;
+  background: #f5f5f5;
+  flex: 1 1 47%;
+}
+
+.group__text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+}
+
+.group__footer {
+  margin-top: 4rem;
+  max-width: 40rem;
+}
+
+.group__buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.group__button {
+  max-width: 22rem !important;
+}
+
+.group__media {
+}
+
+.group__image {
+  border-radius: 35px;
+  width: 100%;
+  height: auto;
+  max-height: 48rem;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .group__inner {
+    padding: 4rem;
+  }
+
+  .group__header {
+    padding: 0;
+    gap: 7rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .group__header {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .group__image {
+    height: 437px;
+  }
+
+  .group__inner {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .group__title {
+    text-align: center;
+  }
+
+  .group__buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .group__image {
+    height: 390px;
+  }
+}
+
+@media (max-width: 380px) {
+  .group__image {
+    height: 350px;
+  }
+}
+
+.tabs__tab {
+  transition: all 0.2s;
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 100%;
+  color: var(--noble-black-300);
+}
+
+.tabs__tab:hover {
+  color: var(--noble-black-600);
+}
+
+.tabs__tab.active {
+  font-weight: 500;
+  color: var(--noble-black-600);
+}
+
+/* Стили для иконки */
+.tabs__tab > .tabs__tab-icon {
+  display: none;
+}
+
+.tabs__tab.active > .tabs__tab-icon {
+  display: block;
+}
+
+.tabs__tab-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke: #fbec78;
+  margin-right: 2rem;
+}
+
+.tabs__content {
+  margin-top: 1rem;
+}
+
+/* ====== ROOMS ====== */
+.rooms {
+}
+
+.rooms__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border-radius: 60px;
+  padding: 50px;
+  background: var(--white);
+}
+
+.rooms__header {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 103.4rem;
+  margin: 0 auto;
+}
+
+.rooms__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 120%;
+  text-align: center;
+  color: var(--noble-black-600);
+}
+
+.rooms__description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--noble-black-600);
+}
+
+.rooms__content {
+  padding-top: 5rem;
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.rooms__media {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 1 1 56.5rem;
+  height: 487px;
+  position: relative;
+}
+
+.rooms__image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+.rooms__details {
+  flex: 1 1 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.rooms__details-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.rooms__room-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: var(--noble-black-600);
+  text-transform: uppercase;
+}
+
+.rooms__room-description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+}
+
+.rooms__line {
+  max-width: 718px;
+  width: 100%;
+  height: 1px;
+  background: var(--noble-black-100);
+  display: block;
+  margin: 0 auto;
+}
+
+.room-info {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem 4rem;
+  /* 1rem по вертикали, 4rem по горизонтали */
+}
+
+.room-info__item {
+  display: contents;
+  /* чтобы label и value легли в сетку напрямую */
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  color: var(--noble-black-600);
+}
+
+.room-info__label {
+}
+
+.room-info__value {
+}
+
+.rooms__actions {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.rooms__button {
+  max-width: 25rem !important;
+}
+
+.rooms__price {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--noble-black-300);
+}
+
+.rooms__tab-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke: #fbec78;
+}
+
+.rooms__images-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: none;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 100%;
+}
+
+/* Левая стрелка слегка выезжает при наведении */
+.rooms__images-button--left:hover {
+  transform: translate(-0.5rem, -50%);
+}
+
+/* Правая стрелка слегка выезжает при наведении */
+.rooms__images-button--right:hover {
+  transform: translate(0.5rem, -50%);
+}
+
+/* Для мягкой анимации при клике можно добавить эффект нажатия */
+.rooms__images-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.rooms__images-button--left {
+  left: 0;
+}
+
+.rooms__images-button--right {
+  right: 0;
+}
+
+.rooms__images-button.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rooms__images {
+  width: 100%;
+  position: relative;
+}
+
+.rooms__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* растягиваем слайд */
+}
+
+.rooms__images {
+  flex: 1 1 55%;
+  /* слайдер тянется на оставшуюся часть */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rooms__image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 45px;
+  object-fit: cover;
+  position: relative;
+}
+
+/* .rooms__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 670px;
+  margin-top: auto;
+} */
+
+/* .rooms__gallery-image {
+  width: 100%;
+  max-width: 315px;
+  aspect-ratio: 315 / 280;
+  object-fit: cover;
+  border-radius: 35px;
+} */
+
+@media (max-width: 1200px) {
+  .rooms__content {
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .rooms__details {
+    flex: none;
+  }
+
+  .rooms__media {
+    flex: none;
+    height: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rooms__inner {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 998px) {
+}
+
+@media (max-width: 768px) {
+  .rooms__images-button {
+    padding: 0 1rem;
+  }
+
+  .rooms__media {
+    height: 437px;
+  }
+
+  .rooms-page__image {
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .rooms__inner {
+    padding: 3rem 2rem;
+  }
+
+  .rooms__actions {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 420px) {
+  .rooms__images-button {
+    padding: 0 1rem;
+  }
+
+  .rooms__media {
+    height: 380px;
+  }
+}
+
+@media (max-width: 370px) {
+  .rooms__media {
+    height: 350px;
+  }
+}
+
+/* ====== ROOMS VARIATIONS ====== */
+
+/* --- Вариант 1: текст под фотографией --- */
+.rooms--v1 .rooms__content--stacked {
+  flex-direction: column;
+  gap: 4rem;
+  padding-top: 5rem;
+}
+
+.rooms--v1 .rooms__media--wide {
+  width: 100%;
+  flex: none;
+  max-width: 90rem;
+  height: 480px;
+}
+
+.rooms--v1 .rooms__details--centered {
+  flex: none;
+  width: 100%;
+  max-width: 72rem;
+  align-items: center;
+  text-align: center;
+}
+
+.rooms--v1 .rooms__details--centered .rooms__details-header {
+  align-items: center;
+}
+
+.room-info--inline {
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(0, max-content));
+}
+
+.rooms__actions--centered {
+  justify-content: center;
+}
+
+/* --- Вариант 2: компактный текст справа --- */
+.rooms--v2 .rooms__content--compact {
+  align-items: stretch;
+  gap: 4rem;
+}
+
+.rooms--v2 .rooms__media--large {
+  flex: 1 1 65%;
+  height: 520px;
+}
+
+.rooms--v2 .rooms__details--narrow {
+  flex: 1 1 28rem;
+  max-width: 32rem;
+  gap: 2rem;
+}
+
+.rooms__room-description--clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rooms__actions--stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: auto;
+}
+
+.rooms__actions--stack .rooms__price {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--noble-black-600);
+}
+
+/* --- Вариант 3: зеркальная компоновка (текст слева) --- */
+.rooms--v3 .rooms__content--reverse {
+  flex-direction: row;
+}
+
+.rooms--v3 .rooms__content--reverse .rooms__details {
+  order: 1;
+}
+
+.rooms--v3 .rooms__content--reverse .rooms__media {
+  order: 2;
+}
+
+/* --- Вариант 4: текст справа, название сверху, кнопка подвижная --- */
+.rooms--v4 .rooms__content--v4 {
+  align-items: stretch;
+  gap: 6rem;
+}
+
+.rooms--v4 .rooms__media {
+  height: 520px;
+}
+
+.rooms__details--v4 {
+  flex: 1 1 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+/* 1. Название по центру, прижато к верхнему уровню фото */
+.rooms__room-title--v4 {
+  font-size: 32px;
+  margin: 0;
+  align-self: center;
+}
+
+/* 3. Описание крупнее, по центру (занимает середину) */
+.rooms__room-description--v4 {
+  font-size: 24px;
+  line-height: 150%;
+  margin: auto 0;
+}
+
+/* 2. Цена и кнопка по нижнему уровню фото */
+.rooms__actions--v4 {
+  margin-top: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Подвижная кнопка */
+.rooms__button--floating {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rooms__button--floating:hover {
+  transform: translateY(-0.6rem);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1200px) {
+  .rooms--v2 .rooms__content--compact,
+  .rooms--v3 .rooms__content--reverse,
+  .rooms--v4 .rooms__content--v4 {
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .rooms--v2 .rooms__media--large,
+  .rooms--v4 .rooms__media {
+    flex: none;
+    width: 100%;
+    height: 500px;
+  }
+
+  .rooms--v2 .rooms__details--narrow {
+    flex: none;
+    max-width: none;
+    width: 100%;
+  }
+
+  .rooms__details--v4 {
+    flex: none;
+    width: 100%;
+  }
+
+  .rooms__room-description--v4 {
+    margin: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .rooms__actions--v4 {
+    flex-direction: column-reverse;
+  }
+}
+
+/* ====== SPECIAL OFFERS ====== */
+.special-offers {
+}
+
+.special-offers__inner {
+  border-radius: 60px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.special-offers__header {
+  display: flex;
+  gap: 7rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.special-offers__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 120%;
+  color: #1c1c1c;
+  flex: 1 1 30rem;
+}
+
+.special-offers__description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 140%;
+  color: #1c1c1c;
+  flex: 1 1 33rem;
+}
+
+.special-offers__items {
+  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+}
+
+.special-offers__item {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 3.5rem;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 4rem;
+}
+
+.special-offers__media {
+  position: relative;
+}
+
+.special-offers__media {
+  aspect-ratio: 4 / 4;
+}
+
+.special-offers__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3.5rem;
+}
+
+.special-offers__content {
+  position: relative;
+  margin-top: 2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.special-offers__label {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  color: var(--noble-black-600);
+}
+
+.special-offers__subtitle {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--noble-black-400);
+  margin-bottom: 0.5rem;
+}
+
+.special-offers__text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--noble-black-600);
+  margin-bottom: 1.1rem;
+}
+
+.special-offers__button {
+  max-width: 25rem;
+}
+
+@media (max-width: 1024px) {
+  .special-offers__inner {
+    padding: 30px;
+  }
+
+  .special-offers__header {
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  .special-offers__title {
+    flex: none;
+    text-align: center;
+  }
+
+  .special-offers__description {
+    flex: none;
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .special-offers__media {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .special-offers__content {
+    padding: 0;
+  }
+
+  .special-offers__label {
+    color: var(--noble-black-600);
+  }
+
+  .special-offers__subtitle {
+    color: var(--noble-black-400);
+  }
+
+  .special-offers__text {
+    color: var(--noble-black-600);
+  }
+}
+
+@media (max-width: 575px) {
+  .special-offers__inner {
+    padding: 1rem;
+  }
+
+  .special-offers__items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .special-offers__inner {
+    padding: 0;
+  }
+}
+
+.contacts {
+}
+
+.contacts__inner {
+  border-radius: 60px;
+  padding: 60px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+
+.contacts__header {
+}
+
+.contacts__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  line-height: 100%;
+  color: var(--noble-black-600);
+  text-align: center;
+}
+
+.contacts__info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem 4rem;
+  align-items: start;
+}
+
+.contacts__item {
+}
+
+.contacts__item-title {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--noble-black-300);
+  font-style: normal;
+}
+
+.contacts__item-text {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  color: var(--noble-black-600);
+  font-style: normal;
+}
+
+.contacts__link {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  color: var(--noble-black-600);
+  font-style: normal;
+  transition: color 0.3s ease;
+}
+
+.contacts__phones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.contacts__link:hover {
+  color: var(--sunglow-600);
+}
+
+.contacts__map {
+  border-radius: 45px;
+}
+
+@media (max-width: 1024px) {
+  .contacts__inner {
+    padding: 45px;
+  }
+}
+
+@media (max-width: 900px) {
+  .contacts__info {
+    gap: 2rem;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts__inner {
+    padding: 35px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contacts__inner {
+    padding: 3rem 2rem;
+  }
+
+  .contacts__title {
+    text-align: center;
+  }
+
+  .contacts__item-text {
+    font-size: 1.8rem;
+  }
+
+  .contacts__link {
+    font-size: 1.8rem;
+  }
+}
+
+/* ================== ГРУППОВОЕ БРОНИРОВАНИЕ - ВАРИАНТ 1 ================== */
+/* Минималистичный с боковой акцентной полосой */
+.group-v1 {
+  margin-bottom: 2rem;
+}
+
+.group-v1__inner {
+  border-radius: 60px;
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+.group-v1__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--sunglow-500) 0%, var(--sunglow-600) 100%);
+}
+
+.group-v1__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  padding: 60px;
+  padding-left: 68px;
+}
+
+.group-v1__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.group-v1__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--sunglow-100);
+  color: var(--sunglow-700);
+  border-radius: 8px;
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.group-v1__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 3.6rem;
+  line-height: 120%;
+  color: var(--noble-black-600);
+}
+
+.group-v1__description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--noble-black-400);
+}
+
+.group-v1__features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.group-v1__features li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--noble-black-600);
+}
+
+.group-v1__features svg {
+  width: 20px;
+  height: 20px;
+  color: var(--stem-green-500);
+  flex-shrink: 0;
+}
+
+.group-v1__cta {
+  display: flex;
+  align-items: center;
+}
+
+.group-v1__box {
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.group-v1__box-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--sunglow-500);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.group-v1__box-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--noble-black-600);
+}
+
+.group-v1__box-label {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--noble-black-300);
+  margin-bottom: 8px;
+}
+
+.group-v1__phone {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--noble-black-600) !important;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.group-v1__phone:hover,
+.group-v1__phone:visited,
+.group-v1__phone:active {
+  color: var(--noble-black-600) !important;
+}
+
+.group-v1__box-text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--noble-black-300);
+  margin-bottom: 20px;
+}
+
+.group-v1__button {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 1024px) {
+  .group-v1__content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .group-v1__cta {
+    justify-content: center;
+  }
+  
+  .group-v1__box {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .group-v1__content {
+    padding: 40px;
+    padding-left: 48px;
+  }
+  
+  .group-v1__title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .group-v1__inner {
+    border-radius: 45px;
+  }
+  
+  .group-v1__content {
+    padding: 30px 20px 30px 28px;
+  }
+  
+  .group-v1__title {
+    font-size: 2.4rem;
+  }
+  
+  .group-v1__phone {
+    font-size: 20px;
+  }
+  
+  .group-v1__box {
+    padding: 28px 18px;
+  }
+  
+  .group-v1__box-label {
+    font-size: 13px;
+  }
+  
+  .group-v1__box-text {
+    font-size: 13px;
+  }
+}
+
+/* ================== СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ ДЛЯ КОМАНД ================== */
+/* БЭМ секция с ярлыками преимуществ */
+.team-offer {
+  margin-bottom: 2rem;
+}
+
+.team-offer__inner {
+  border-radius: 60px;
+  background: var(--white);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Блок заголовка */
+.team-offer__header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.team-offer__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--sunglow-500);
+  color: var(--noble-black-600);
+  border-radius: 12px;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.team-offer__description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--noble-black-400);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Блок ярлыков преимуществ */
+.team-offer__features {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.team-offer__feature {
+  padding: 32px 24px;
+  background: #f8f8f8;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.team-offer__feature:hover {
+  background: #f5f5f5;
+  border-color: var(--sunglow-300);
+  transform: translateY(-4px);
+}
+
+.team-offer__feature-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--sunglow-500);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team-offer__feature-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--noble-black-600);
+}
+
+.team-offer__feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team-offer__feature-title {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--noble-black-600);
+  line-height: 130%;
+}
+
+.team-offer__feature-text {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 150%;
+  color: var(--noble-black-400);
+}
+
+/* Блок контактов и кнопки */
+.team-offer__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--noble-black-100);
+}
+
+.team-offer__contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.team-offer__contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--noble-black-600);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.team-offer__contact:hover {
+  color: var(--sunglow-600);
+}
+
+.team-offer__contact svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.team-offer__contact--phone svg {
+  color: var(--sunglow-600);
+}
+
+.team-offer__contact--email svg {
+  color: var(--sunglow-600);
+}
+
+.team-offer__button {
+  min-width: 220px !important;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1200px) {
+  .team-offer__features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .team-offer__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .team-offer__badge {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-offer__inner {
+    padding: 40px 30px;
+  }
+  
+  .team-offer__contacts {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .team-offer__contact {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .team-offer__inner {
+    padding: 30px 20px;
+    border-radius: 45px;
+  }
+  
+  .team-offer__features {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-offer__feature {
+    flex-direction: row;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .team-offer__feature-content {
+    align-items: flex-start;
+  }
+  
+  .team-offer__badge {
+    font-size: 14px;
+    padding: 10px 16px;
+    line-height: 130%;
+  }
+  
+  .team-offer__description {
+    font-size: 16px;
+  }
+  
+  .team-offer__contact {
+    font-size: 16px;
+  }
+}
+
+/* ================== ГРУППОВОЕ БРОНИРОВАНИЕ - ВАРИАНТ 3 ================== */
+/* Компактный баннер со статистикой */
+.group-v3 {
+  margin-bottom: 2rem;
+}
+
+.group-v3__inner {
+  border-radius: 60px;
+  background: var(--white);
+  padding: 50px 60px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.group-v3__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.group-v3__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--sunglow-100);
+  color: var(--sunglow-700);
+  border-radius: 8px;
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.group-v3__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 120%;
+  color: var(--noble-black-600);
+}
+
+.group-v3__description {
+  font-family: var(--second-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--noble-black-400);
+}
+
+.group-v3__center {
+  display: flex;
+  justify-content: center;
+}
+
+.group-v3__stats {
+  display: flex;
+  gap: 2.5rem;
+  padding: 25px 35px;
+  background: #f8f8f8;
+  border-radius: 20px;
+}
+
+.group-v3__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.group-v3__stat-value {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--noble-black-600);
+}
+
+.group-v3__stat-label {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--noble-black-300);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.group-v3__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.group-v3__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--noble-black-600) !important;
+  white-space: nowrap;
+}
+
+.group-v3__phone:hover,
+.group-v3__phone:visited,
+.group-v3__phone:active {
+  color: var(--noble-black-600) !important;
+}
+
+.group-v3__phone svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.group-v3__button {
+  min-width: 180px !important;
+}
+
+@media (max-width: 1100px) {
+  .group-v3__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .group-v3__left {
+    align-items: center;
+  }
+  
+  .group-v3__right {
+    align-items: center;
+  }
+  
+  .group-v3__stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .group-v3__inner {
+    padding: 40px 30px;
+  }
+  
+  .group-v3__title {
+    font-size: 2.2rem;
+  }
+  
+  .group-v3__stats {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    padding: 20px 25px;
+  }
+  
+  .group-v3__stat-value {
+    font-size: 24px;
+  }
+  
+  .group-v3__stat-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 575px) {
+  .group-v3__inner {
+    padding: 30px 20px;
+    border-radius: 45px;
+  }
+  
+  .group-v3__title {
+    font-size: 2rem;
+  }
+  
+  .group-v3__stat-value {
+    font-size: 22px;
+  }
+  
+  .group-v3__stat {
+    gap: 4px;
+  }
+  
+  .group-v3__phone {
+    font-size: 16px;
+  }
+}
+</style>

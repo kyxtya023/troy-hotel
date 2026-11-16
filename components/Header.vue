@@ -1,0 +1,730 @@
+<template>
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__logo-wrapper">
+          <div class="header__logo">
+            <NuxtLink class="header__logo-link" to="/">
+              <img src="/logo.png" alt="Парк-отель Троя Краснодар" />
+            </NuxtLink>
+          </div>
+
+          <div class="header__info">
+            <a
+              class="header__telephone"
+              href="tel:+78002002533"
+              data-allow-mismatch="children"
+            >
+              +7 800 200-25-33
+            </a>
+            <a
+              class="header__telephone"
+              href="tel:+79681999181"
+              data-allow-mismatch="children"
+            >
+              +7 968 199-91-81
+            </a>
+            <div
+              class="header__address"
+              itemscope
+              itemtype="https://schema.org/PostalAddress"
+            >
+              <span itemprop="addressLocality">Краснодар</span>,
+              <span itemprop="streetAddress">ул. 1-го Мая, 131</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="menu__list-desktop">
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/"
+              >Главная</NuxtLink
+            >
+          </li>
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/rooms"
+              >Номера</NuxtLink
+            >
+          </li>
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/spa"
+              >СПА</NuxtLink
+            >
+          </li>
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/banquet"
+              >Банкеты</NuxtLink
+            >
+          </li>
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/restaurant"
+              >Ресторан</NuxtLink
+            >
+          </li>
+          <li class="menu__list-item">
+            <NuxtLink
+              class="menu__list-item-link"
+              exact-active-class="active"
+              to="/conference"
+              >Конференции</NuxtLink
+            >
+          </li>
+        </ul>
+
+        <div class="header__tel-nav">
+          <a
+            v-if="canCall"
+            class="header__tel"
+            href="tel:+78002002533"
+            data-allow-mismatch="children"
+          >
+            <span class="header__tel-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </span>
+            <span>+7 800 200-25-33</span>
+          </a>
+
+          <div class="header__nav-wrapper">
+            <button
+              class="header__burger"
+              :class="{ active: menuOpen }"
+              @click="toggleMenu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <nav class="header__menu menu" :class="{ 'is-open': menuOpen }">
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/"
+                    >Главная</NuxtLink
+                  >
+                </li>
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/rooms"
+                    >Номера</NuxtLink
+                  >
+                </li>
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/spa"
+                    >СПА</NuxtLink
+                  >
+                </li>
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/banquet"
+                    >Банкеты</NuxtLink
+                  >
+                </li>
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/restaurant"
+                    >Ресторан</NuxtLink
+                  >
+                </li>
+                <li class="menu__list-item">
+                  <NuxtLink
+                    class="menu__list-item-link"
+                    exact-active-class="active"
+                    to="/conference"
+                    >Конференции</NuxtLink
+                  >
+                </li>
+              </ul>
+
+              <div class="header__info-about">
+                <div
+                  class="header__address"
+                  itemscope
+                  itemtype="https://schema.org/PostalAddress"
+                >
+                  <span itemprop="addressLocality">Краснодар</span>,
+                  <span itemprop="streetAddress">ул. 1-го Мая, 131</span>
+                </div>
+                <a
+                  class="header__telephone"
+                  href="tel:+78002002533"
+                  data-allow-mismatch="children"
+                >
+                  +7 800 200-25-33
+                </a>
+                <a
+                  class="header__telephone"
+                  href="tel:+79681999181"
+                  data-allow-mismatch="children"
+                >
+                  +7 968 199-91-81
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router";
+
+const menuOpen = ref(false);
+const canCall = ref(false);
+
+const router = useRouter();
+
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
+};
+
+const closeMenu = () => {
+  menuOpen.value = false;
+};
+
+const detectCanCall = () => {
+  canCall.value =
+    /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    navigator.maxTouchPoints > 0;
+};
+
+const handleClickOutside = (e: MouseEvent) => {
+  if (!menuOpen.value) return;
+
+  const target = e.target as HTMLElement;
+  const menu = document.querySelector(".header__menu");
+  const burger = document.querySelector(".header__burger");
+
+  if (menu && burger && !menu.contains(target) && !burger.contains(target)) {
+    closeMenu();
+  }
+};
+
+onMounted(() => {
+  detectCanCall();
+  document.addEventListener("click", handleClickOutside);
+
+  router.afterEach(() => {
+    menuOpen.value = false;
+  });
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
+</script>
+
+<style scoped>
+.header {
+  position: fixed;
+  top: 0;
+  /* закрепляем сверху */
+  left: 0;
+  /* смещаем в центр */
+  /* выравниваем ровно по центру */
+  width: 100%;
+  /* растягиваем на всю ширину */
+  /* или нужный максимум */
+  z-index: 10000;
+  /* чтобы не перекрывался */
+  margin: 0;
+  /* убираем внешние отступы */
+  border-bottom: 1px solid rgba(254, 237, 236, 0.09);
+  background: var(--white);
+  z-index: 10000;
+  overflow: visible;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 2.5rem;
+  padding: 15px 70px;
+}
+
+.header__info {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header__logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  min-width: 33rem;
+}
+
+.header__logo-link img {
+  max-height: 75px;
+  width: auto;
+}
+
+.header__nav-wrapper {
+  position: relative;
+  display: flex;
+  gap: 4rem;
+}
+
+.header__nav-wrapper > .header__menu > .header__info-about > .header__address {
+  display: none;
+}
+
+.header__nav-wrapper
+  > .header__menu
+  > .header__info-about
+  > .header__telephone {
+  display: none;
+}
+
+.header__address {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: var(--noble-black-600);
+}
+
+.header__nav-wrapper {
+  display: none;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu__list-desktop {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.menu__list-item {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__list-item-link {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 111%;
+  letter-spacing: 0.01em;
+  color: var(--noble-black-600);
+  border-radius: 12px;
+  padding: 8px 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.menu__list-item-link:hover {
+  /* color: #f1de4e; */
+  background: #f5f6f8;
+}
+
+.menu__list-item-link.active {
+  background: #f5f6f8;
+}
+
+.header__telephone {
+  display: inline-block;
+  width: max-content;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: var(--noble-black-600);
+  transition: color 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: visible;
+  opacity: 1;
+  filter: none;
+}
+
+.header__telephone:visited,
+.header__telephone:active,
+.header__telephone:focus {
+  color: var(--noble-black-600);
+}
+
+.header__telephone small {
+  color: inherit !important;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.header__telephone:hover {
+  color: #b8860b;
+}
+
+.header__tel-nav {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.header__tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  border: none;
+  width: auto;
+  border-radius: 2rem;
+  padding: 1.3rem 1.8rem;
+  background-color: #fbec78;
+  color: var(--noble-black-600);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.header__tel:hover {
+  background-color: var(--sunglow-600);
+  color: var(--noble-black-600);
+  box-shadow: 0 12px 24px rgba(226, 180, 43, 0.24);
+}
+
+.header__tel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__tel-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.header__burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #242742;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Анимация крестика */
+.header__burger.active span:nth-child(1) {
+  animation: top 0.7s forwards;
+}
+
+.header__burger.active span:nth-child(2) {
+  animation: scaled 0.7s forwards;
+}
+
+.header__burger.active span:nth-child(3) {
+  animation: bottom 0.7s forwards;
+}
+
+.header__burger:not(.active) span:nth-child(1) {
+  animation: top-2 0.7s forwards;
+}
+
+.header__burger:not(.active) span:nth-child(2) {
+  animation: scaled-2 0.7s forwards;
+}
+
+.header__burger:not(.active) span:nth-child(3) {
+  animation: bottom-2 0.7s forwards;
+}
+
+/* keyframes для новых размеров */
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  50% {
+    top: 11px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: 11px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-2 {
+  0% {
+    top: 11px;
+    transform: rotate(45deg);
+  }
+
+  50% {
+    top: 11px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+
+  50% {
+    bottom: 10px;
+    transform: rotate(0);
+  }
+
+  100% {
+    bottom: 10px;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes bottom-2 {
+  0% {
+    bottom: 10px;
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    bottom: 10px;
+    transform: rotate(0);
+  }
+
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.header__info-about {
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  display: none;
+}
+
+.header__burger {
+  display: flex;
+}
+
+.header__menu {
+  display: flex;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
+  position: absolute;
+  top: 200%;
+  right: 0;
+  background: #fff;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  width: max-content;
+  min-width: 200px;
+  pointer-events: none;
+}
+
+.header__menu.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 1200px) {
+  .menu__list-desktop {
+    display: none;
+  }
+
+  .header__nav-wrapper {
+    display: flex;
+  }
+
+  .menu__list-item-link {
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 920px) {
+  .header__logo-wrapper > .header__address {
+    display: none;
+  }
+
+  .header__nav-wrapper > .header__telephone {
+    display: none;
+  }
+
+  .header__nav-wrapper
+    > .header__menu
+    > .header__info-about
+    > .header__address {
+    display: block;
+  }
+
+  .header__nav-wrapper
+    > .header__menu
+    > .header__info-about
+    > .header__telephone {
+    display: block;
+  }
+}
+
+@media (max-width: 870px) {
+  .header__info {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__inner {
+    padding: 15px 45px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header__info-about {
+    display: flex;
+  }
+
+  .header__logo-wrapper {
+    min-width: auto;
+  }
+
+  .header__logo-link img {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 575px) {
+  .header__inner {
+    padding: 15px 25px;
+  }
+
+  .header__tel {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__inner {
+    padding: 15px 10px;
+  }
+
+  .header__tel {
+    padding: 1rem 1.3rem;
+    font-size: 1.4rem;
+  }
+
+  .header__tel-nav {
+    gap: 2rem;
+  }
+}
+</style>
